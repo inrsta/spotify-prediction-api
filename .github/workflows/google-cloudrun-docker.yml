@@ -49,7 +49,7 @@ on:
     branches: [ "main" ]
 
 env:
-  PROJECT_ID: "${{ env.PROJECT_ID }}" # TODO: update Google Cloud project id
+  PROJECT_ID: $PROJECT_ID # TODO: update Google Cloud project id
   GAR_LOCATION: europe-west1-docker.pkg.dev/dez-inri-389719/cloud-run-source-deploy # TODO: update Artifact Registry location
   SERVICE: spotify-predict-api # TODO: update Cloud Run service name
   REGION: europe-west1-b # TODO: update Cloud Run service region

@@ -19,3 +19,4 @@ URL = "https://spotify-predict-api-dbtolisexq-ew.a.run.app/predict"
 print("Before sending request...")
 response = requests.post(URL, json=song_features, timeout=30)
 print(response.json())
+print("Response was received successfully...")

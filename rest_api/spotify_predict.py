@@ -67,12 +67,16 @@ app = Flask("spotify-prediction")
 def predict_endpoint():
     song_features = request.get_json()
 
+    print("Just received the features from the request...")
+
     # Convert song features to DataFrame
     df = pd.DataFrame([song_features])
 
     song_dict = df.to_dict(orient="records")
     transformed_data = dv.transform(song_dict)
     prediction = model.predict(transformed_data)
+
+    print("Just finished the prediction...")
 
     result = {
         "prediction": float(prediction[0]),

@@ -81,8 +81,9 @@ jobs:
         with:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
       
-      - name: Debug token output
-        run: echo "Token exists? ${{ steps.auth.outputs.access_token != '' }}"
+      - name: Debug all Google Auth outputs
+        run: echo "${{ toJSON(steps.auth.outputs) }}"
+        
         
 
       # BEGIN - Docker auth and build (NOTE: If you already have a container image, these Docker steps can be omitted)

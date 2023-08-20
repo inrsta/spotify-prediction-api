@@ -79,7 +79,10 @@ jobs:
         id: auth
         uses: 'google-github-actions/auth@v0'
         with:
+          token_format: 'access_token'
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+        
       
       - name: Debug all Google Auth outputs
         run: echo "${{ toJSON(steps.auth.outputs) }}"

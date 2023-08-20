@@ -99,7 +99,7 @@ jobs:
         with:
           service: ${{ env.SERVICE }}
           region: ${{ env.REGION }}
-          flags: "--memory=1GiB"
+          flags: "--memory=1Gi"
           # NOTE: If using a pre-built image, update the image name here
           image: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}
           env_vars: |

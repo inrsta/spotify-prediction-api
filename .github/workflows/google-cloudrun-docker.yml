@@ -102,7 +102,6 @@ jobs:
           # NOTE: If using a pre-built image, update the image name here
           image: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}
           env_vars: |
-            PORT=9696
             RUN_ID='260d3169917b4fe38f4212bf78fa137f'
             BUCKET_NAME='mlflow-artifacts-inri'
 

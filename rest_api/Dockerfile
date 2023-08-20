@@ -22,7 +22,7 @@ RUN pipenv install --deploy
 COPY [ "spotify_predict.py", "preprocessor.b", "./"]
 
 # Expose the application's port
-EXPOSE 9696
+EXPOSE 8080
 
 # Use pipenv to run the application
-ENTRYPOINT [ "pipenv", "run", "gunicorn", "--bind=0.0.0.0:9696", "spotify_predict:app" ]
+ENTRYPOINT [ "pipenv", "run", "gunicorn", "--bind=0.0.0.0:8080", "spotify_predict:app" ]

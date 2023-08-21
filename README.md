@@ -62,6 +62,8 @@ For authenticating, please use `admin` for the username and `password` for the p
 
 5. Inside the directory `prefect_deployment` there is a file called orchestrate_gcs.py. Inside this file you can find the code for the Prefect flow which will train a model and track it with MLFlow. You can either run it via `python orceshtrate_gcs.py` when you are inside the directory or you can also deploy a Prefect flow using Prefect Cloud.
 
+The flow is tested with unit tests.
+
 ![Depiction of the experiment tracking.](images/image-1.png)
 
 The model is also deployed as a registered model in MLFlow.
@@ -82,3 +84,5 @@ RUN_ID the run id of the best performing model
 There is a `Pipfile` available which you can use to install the dependencies.
 
 The code is deployed on Google Cloud Run through a CI/CD pipeline which runs automatically everytime new code is pushed to the main branch of the repository.
+
+There are also pre-commit hooks.

@@ -1,7 +1,23 @@
 ## Predicting a song's popularity on Spotify.
 
-The dataset used for this project is located [here](https://www.kaggle.com/datasets/amitanshjoshi/spotify-1million-tracks). The idea behind this project was to create a REST API which can predict how successfull a song will be on Spotify if we provide some techincal details about the song. 
+The dataset used for this project is located [here](https://www.kaggle.com/datasets/amitanshjoshi/spotify-1million-tracks). The idea behind this project was to create a REST API which can predict how successfull a song will be on Spotify if we provide some techincal details about the song. Such technical details include genre, danceability, energy etc. 
 
+The api endpoint is located here: `https://spotifypredictapi-dbtolisexq-ew.a.run.app/predict`. In order to test it please send a request to this endpoint structured like this:
+```
+song_features = {
+    "danceability": 0.5,
+    "energy": 0.5,
+    "loudness": 0.5,
+    "speechiness": 0.5,
+    "acousticness": 0.5,
+    "duration_minutes": 3,
+    "valence": 0.5,
+    "tempo": 0.5,
+    "liveness": 0.5,
+    "genre": 1,
+}
+```
+The endpoint is live so you can try it and it should work. There is a python file `rest_api/test_google_run_actions.py` which you can run to send the request as well. 
 I have put the dataset in a GCS bucket. In order for you to do 
 the same you have to follow these steps:
 

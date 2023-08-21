@@ -79,7 +79,7 @@ def predict_endpoint():
     print("Just finished the prediction...")
 
     result = {
-        "prediction": float(prediction[0]),
+        "popularity": float(prediction[0]),
     }
 
     return jsonify(result)

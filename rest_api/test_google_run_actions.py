@@ -15,7 +15,7 @@ song_features = {
 }
 
 # Update the URL with the external IP address
-URL = "https://test-dbtolisexq-ew.a.run.app/predict"
+URL = "https://spotifypredictapi-dbtolisexq-ew.a.run.app/predict"
 print("Before sending request...")
 response = requests.post(URL, json=song_features, timeout=30)
 print(response.json())

@@ -3,7 +3,7 @@ FROM python:3.9.7-slim
 
 # Install pipenv
 RUN pip install -U pip && \
-    pip install pipenv 
+    pip install pipenv
 
 # Set working directory
 WORKDIR /app

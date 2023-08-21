@@ -1,6 +1,6 @@
 ## Predicting a song's popularity on Spotify.
 
-The dataset used for this project is located [here](https://www.kaggle.com/datasets/amitanshjoshi/spotify-1million-tracks). The idea behind this project was to create a REST API which can predict how successfull a song will be on Spotify if we provide some techincal details about the song. Such technical details include genre, danceability, energy etc. 
+The dataset used for this project is located [here](https://www.kaggle.com/datasets/amitanshjoshi/spotify-1million-tracks). The idea behind this project was to create a REST API which can predict how successfull a song will be on Spotify if we provide some techincal details about the song. Such technical details include genre, danceability, energy etc.
 
 The api endpoint is located here: `https://spotifypredictapi-dbtolisexq-ew.a.run.app/predict`. In order to test it please send a request to this endpoint structured like this:
 ```
@@ -17,8 +17,9 @@ song_features = {
     "genre": 1,
 }
 ```
-The endpoint is live so you can try it and it should work. There is a python file `rest_api/test_google_run_actions.py` which you can run to send the request as well. 
-I have put the dataset in a GCS bucket. In order for you to do 
+The endpoint is live so you can try it and it should work. There is a python file `rest_api/test_google_run_actions.py` which you can run to send the request as well.
+
+I have put the dataset in a GCS bucket. In order for you to do
 the same you have to follow these steps:
 
 
@@ -32,12 +33,12 @@ the same you have to follow these steps:
     - To download datasets from kaggle programmatically, we need a kaggle API, which you can get from the settings page on kaggle.
     ![Image of the settings page.](images/image.png)
     - Create a .kaggle folder in your machine's main directory: `mkdir ~/.kaggle`
-    - Download the json file from kaggle and put it in the newly created .kaggle folder. 
+    - Download the json file from kaggle and put it in the newly created .kaggle folder.
     - Change the privacy of the file: `chmod 600 ~/.kaggle/kaggle.json`
 3. From the directory `download_data` run
 ```
 make load_to_bucket dataset=amitanshjoshi/spotify-1million-tracks bucket=spotify-popularity-prediction-inri
-``` 
+```
 
 This script will download the dataset and upload it to the bucket. Please make sure the account you are authenticated as has the rights to access and write to the bucket.
 
@@ -72,4 +73,12 @@ The flow is deployed to Prefect Cloud for better automation.
 ![Alt text](images/image-3.png)
 ### Rest API and Google Cloud Run
 
-6. Inisde the directory `rest_api` you can find the code to deploy a REST API. 
+6. Inisde the directory `rest_api` you can find the code to deploy a REST API. To run the code you need to set two environment variables:
+```
+BUCKET_NAME which is the name of the bucket where the MLFlow artifacts are stored
+RUN_ID the run id of the best performing model
+```
+
+There is a `Pipfile` available which you can use to install the dependencies.
+
+The code is deployed on Google Cloud Run through a CI/CD pipeline which runs automatically everytime new code is pushed to the main branch of the repository.

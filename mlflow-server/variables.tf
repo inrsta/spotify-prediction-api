@@ -9,7 +9,7 @@ variable "gcp_region" {
 
 variable "gcp_project" {
     description = "Project ID"
-  
+
 }
 
 variable "service_account_email" {

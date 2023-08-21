@@ -2,7 +2,7 @@
 terraform {
   required_version = ">= 1.0"
   backend "gcs" {
-    bucket = "tfstate-mlflow-server-inri"
+    bucket = var.tfstate_mlflow_server
   }
 }
 
@@ -72,4 +72,9 @@ resource "google_compute_instance" "mlflow-server-test" {
     startup-script = file("${path.module}/startup.sh")
     ARTIFACT_ROOT  = var.artifact_root_gcs_location
   }
+}
+
+output "vm_external_ip" {
+  description = "The external IP address of the VM."
+  value       = google_compute_instance.mlflow-server-test.network_interface[0].access_config[0].nat_ip
 }

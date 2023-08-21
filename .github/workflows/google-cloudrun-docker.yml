@@ -50,8 +50,8 @@ on:
 
 env:
   PROJECT_ID: 	dez-inri-389719 # TODO: update Google Cloud project id
-  GAR_LOCATION: europe-west1-docker.pkg.dev/dez-inri-389719/test-artifact-registry # TODO: update Artifact Registry location
-  SERVICE: test # TODO: update Cloud Run service name
+  GAR_LOCATION: ... # TODO: update Artifact Registry location
+  SERVICE: spotifypredictapi # TODO: update Cloud Run service name
   REGION: europe-west1 # TODO: update Cloud Run service region
 
 jobs:

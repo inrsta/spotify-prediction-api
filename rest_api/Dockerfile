@@ -13,7 +13,7 @@ WORKDIR /app
 ENV PIPENV_VENV_IN_PROJECT=true
 
 # Copy Pipfile & Pipfile.lock first to leverage Docker cache
-COPY [ "Pipfile", "Pipfile.lock", "./" ]
+COPY [ "Pipfile", "./" ]
 
 # Install all the dependencies
 RUN pipenv install --deploy
